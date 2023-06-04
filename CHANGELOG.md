@@ -1,3 +1,6 @@
+## 1.0.6
+- FINAL demo
+
 ## 1.0.5
 - Just another test
 

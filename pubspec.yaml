@@ -1,6 +1,6 @@
 name: ptwcode_country_codes
 description: A package to find the calling code and iso code to a country.
-version: 1.0.5
+version: 1.0.6
 repository: https://github.com/alidev0/ptwcode_country_codes
 
 environment:
