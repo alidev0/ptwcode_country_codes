@@ -1,3 +1,5 @@
-## 1.0.0
+## 1.0.1
+- Added example video
 
+## 1.0.0
 - Initial version.
