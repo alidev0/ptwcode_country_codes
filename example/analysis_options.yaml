@@ -1,0 +1,17 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  plugins:
+    - dart_code_metrics
+
+linter:
+  rules:
+    avoid_print: true
+    prefer_single_quotes: true
+    prefer_relative_imports: true
+    directives_ordering: true
+    always_declare_return_types: true
+
+dart_code_metrics:
+  rules:
+    - prefer-moving-to-variable
