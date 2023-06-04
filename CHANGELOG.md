@@ -1,5 +1,8 @@
+## 1.0.3
+- Compress demo
+
 ## 1.0.2
-- add demo
+- Add demo
 
 ## 1.0.1
 - Added example video
