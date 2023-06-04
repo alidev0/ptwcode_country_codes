@@ -1,3 +1,6 @@
+## 1.0.4
+- Fix demo
+
 ## 1.0.3
 - Compress demo
 
