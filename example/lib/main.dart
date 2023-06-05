@@ -26,26 +26,52 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Country? _country;
+  Country? _dialogCountry;
+  Country? _defaultCountry;
 
-  void _onTap() async {
-    _country = await showCountryDialog(context);
+  void _onTapDialog() async {
+    _dialogCountry = await showCountryDialog(context);
+    setState(() {});
+  }
+
+  void _onTapDefault() async {
+    _defaultCountry = await getDefaultCountry();
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    const style = TextStyle(fontWeight: FontWeight.bold, fontSize: 20);
+
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: _onTap,
-          child: Text(
-            _country == null
-                ? 'no country choosen'
-                : 'Country: ${_country?.name} | Code: +${_country?.call}',
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const Center(child: Text('Countries Dialog', style: style)),
+          Center(
+            child: ElevatedButton(
+              onPressed: _onTapDialog,
+              child: Text(
+                _dialogCountry == null
+                    ? 'no country choosen'
+                    : 'Country: ${_dialogCountry?.name} | Code: +${_dialogCountry?.call}',
+              ),
+            ),
           ),
-        ),
+          const Center(child: Text('Default Country', style: style)),
+          Center(
+            child: ElevatedButton(
+              onPressed: _onTapDefault,
+              child: Text(
+                _defaultCountry == null
+                    ? 'no country choosen'
+                    : 'Country: ${_defaultCountry?.name} | Code: +${_defaultCountry?.call}',
+              ),
+            ),
+          ),
+          const SizedBox(),
+        ],
       ),
     );
   }

@@ -1,3 +1,6 @@
+## 1.0.7
+- add getDefaultCountry()
+
 ## 1.0.6
 - FINAL demo
 

@@ -8,7 +8,12 @@ List<Country> getAllCountries() {
     final data = line.split('/').first.trim().split('\t');
     if (data.length != 3) continue;
 
-    final item = Country(name: data.first, call: data[1], iso2: data.last);
+    final item = Country(
+      name: data.first,
+      call: data[1],
+      iso2: data.last.toLowerCase(),
+    );
+
     list.add(item);
   }
 

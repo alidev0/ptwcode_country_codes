@@ -1,6 +1,6 @@
 name: ptwcode_country_codes
 description: A package to find the calling code and iso code to a country.
-version: 1.0.6
+version: 1.0.7
 repository: https://github.com/alidev0/ptwcode_country_codes
 
 environment:
@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dio: ^5.1.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
