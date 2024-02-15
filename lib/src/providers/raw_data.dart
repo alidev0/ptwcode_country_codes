@@ -122,7 +122,7 @@ Liechtenstein	423	LI / LIE	35,000	160	5.113 Billion
 Lithuania	370	LT / LTU	2,944,459	65,200	46.71 Billion
 Luxembourg	352	LU / LUX	497,538	2,586	60.54 Billion
 Macau	853	MO / MAC	449,198	254	51.68 Billion
-Macedonia	389	MK / MKD	2,062,294	25,333	10.65 Billion
+North Macedonia	389	MK / MKD	2,062,294	25,333	10.65 Billion
 Madagascar	261	MG / MDG	21,281,844	587,040	10.53 Billion
 Malawi	265	MW / MWI	15,447,500	118,480	3.683 Billion
 Malaysia	60	MY / MYS	28,274,729	329,750	312.4 Billion
