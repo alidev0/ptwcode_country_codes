@@ -1,3 +1,4 @@
+/// an object that represent a country
 class Country {
   Country({required this.name, required this.call, required this.iso2});
 

@@ -11,6 +11,7 @@ import 'ui/my_div.dart';
 import 'ui/my_paddings.dart';
 import 'ui/show_my_dialog.dart';
 
+/// show list of countries on a dialog
 Future<Country?> showCountryDialog(BuildContext context) async {
   return await showMyDialog<Country>(
     context: context,
@@ -45,7 +46,7 @@ class _ContentState extends State<_Content> {
         width: 32,
         height: 32,
         package: 'ptwcode_country_codes',
-        errorBuilder: (context, error, stackTrace) => Gap(0),
+        errorBuilder: (context, error, stackTrace) => const Gap(0),
       );
 
       curr = Row(
@@ -78,7 +79,7 @@ class _ContentState extends State<_Content> {
       height: 48,
       decoration: BoxDecoration(
         color: t.color.blue,
-        borderRadius: BorderRadius.all(Radius.circular(16)),
+        borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       child: cancel,
     );
@@ -117,12 +118,17 @@ class _ContentState extends State<_Content> {
     current = Container(
       decoration: BoxDecoration(
         color: t.color.white,
-        borderRadius: BorderRadius.all(Radius.circular(16)),
+        borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       child: current,
     );
 
-    current = Column(children: [Expanded(child: current), GapBottom(min: 0)]);
+    current = Column(
+      children: [
+        Expanded(child: current),
+        const GapBottom(min: 0),
+      ],
+    );
 
     current = AllPadding(current, 32);
     current = Center(child: current);

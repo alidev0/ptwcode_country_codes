@@ -1,4 +1,8 @@
 ## 1.0.7
+- fix North Macedonia country
+- add ptwcode_lints
+
+## 1.0.7
 - add getDefaultCountry()
 
 ## 1.0.6
