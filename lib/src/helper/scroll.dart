@@ -2,13 +2,11 @@ import 'package:flutter/widgets.dart';
 
 import 'render.dart';
 
-void scrollIfNotVisible(
-    BuildContext context, GlobalKey key, Function() isMounted) async {
+void scrollIfNotVisible(BuildContext context, GlobalKey key) async {
   const duration = Duration(milliseconds: 400);
   await Future.delayed(duration);
 
-  final mounted = isMounted();
-  if (!mounted) return;
+  if (!context.mounted) return;
 
   final mQ = MediaQuery.of(context);
   final height = mQ.size.height;

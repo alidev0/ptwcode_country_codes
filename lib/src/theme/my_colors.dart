@@ -25,5 +25,5 @@ class MyColors {
   final Color purple = const Color(0xFF495484);
   final Color purpleDark = const Color(0xFF2D396B);
 
-  Color get barrier => black.withOpacity(0.6);
+  Color get barrier => black.withValues(alpha: 0.6);
 }

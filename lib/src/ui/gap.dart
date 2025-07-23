@@ -1,10 +1,10 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+const infinity = double.infinity;
+
 class Gap extends StatelessWidget {
-  const Gap(this.lSize, {Key? key})
-      : assert(lSize >= 0 && lSize < double.infinity),
-        super(key: key);
+  const Gap(this.lSize, {super.key}) : assert(lSize >= 0 && lSize < infinity);
 
   final double lSize;
 
@@ -19,9 +19,8 @@ class Gap extends StatelessWidget {
 }
 
 class _RawGap extends LeafRenderObjectWidget {
-  const _RawGap(this.lSize, {Key? key, this.fallTo})
-      : assert(lSize >= 0 && lSize < double.infinity),
-        super(key: key);
+  const _RawGap(this.lSize, {this.fallTo})
+    : assert(lSize >= 0 && lSize < infinity);
 
   final double lSize;
   final Axis? fallTo;
@@ -38,8 +37,8 @@ class _RawGap extends LeafRenderObjectWidget {
 
 class RenderGap extends RenderBox {
   RenderGap({required double lSize, Axis? fallTo})
-      : _lSize = lSize,
-        _fallTo = fallTo;
+    : _lSize = lSize,
+      _fallTo = fallTo;
 
   double _lSize;
   double get lSize => _lSize;

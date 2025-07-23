@@ -85,13 +85,10 @@ class _InputState extends State<Input> {
     _focus.addListener(() {
       if (mounted) setState(() {});
 
-      if (_focus.hasFocus && mounted) {
-        scrollIfNotVisible(context, _key, isMounted);
-      }
+      final hasFocus = _focus.hasFocus;
+      if (hasFocus && mounted) scrollIfNotVisible(context, _key);
 
-      if (widget.ctrl.text.isNotEmpty) {
-        if (!_focus.hasFocus) validate();
-      }
+      if (widget.ctrl.text.isNotEmpty) if (!hasFocus) validate();
     });
 
     super.initState();
@@ -118,6 +115,12 @@ class _InputState extends State<Input> {
 
     final leading = widget.leading;
     final label = widget.label;
+    final isPsw = widget.isPsw;
+    final bgColor = widget.bgColor;
+    final focusedBorderColor = widget.focusedBorderColor;
+    final enabledBorderColorEmpty = widget.enabledBorderColorEmpty;
+    final enabledBorderColorNotEmpty = widget.enabledBorderColorNotEmpty;
+    final textColor = widget.textColor;
 
     Widget pswIcon = GestureDetector(
       onTap: () => setState(() => _isSecure = !_isSecure),
@@ -165,7 +168,7 @@ class _InputState extends State<Input> {
     Widget current = m.TextField(
       key: _key,
       enableInteractiveSelection: widget.enableInteractiveSelection,
-      obscureText: widget.isPsw && _isSecure,
+      obscureText: isPsw && _isSecure,
       textInputAction: textInputAction(widget.endAction),
       textAlign: widget.textAlign,
       maxLength: widget.maxLength,
@@ -174,42 +177,42 @@ class _InputState extends State<Input> {
       enabled: widget.enabled,
       controller: widget.ctrl,
       keyboardType: widget.keyboardType,
-      style: def400s16Black.copyWith(color: widget.textColor),
+      style: def400s16Black.copyWith(color: textColor),
       onChanged: widget.onChange,
       onTap: widget.onTap,
       decoration: m.InputDecoration(
-        fillColor: widget.bgColor,
-        filled: widget.bgColor != null,
+        fillColor: bgColor,
+        filled: bgColor != null,
         floatingLabelBehavior: labelBehaviour(widget.labelBehaviour),
         label: (label == null) ? null : Text(label, style: def400s16Black),
-        suffixIcon: widget.isPsw ? pswIcon : null,
+        suffixIcon: isPsw ? pswIcon : null,
         contentPadding: const EdgeInsets.all(16),
         border: m.InputBorder.none,
         focusedBorder: !hasBorder
             ? null
             : isBorderUnderline
-                ? underlineBorder(widget.focusedBorderColor ?? blue)
-                : outlineInputBorder(widget.focusedBorderColor ?? blue),
+            ? underlineBorder(focusedBorderColor ?? blue)
+            : outlineInputBorder(focusedBorderColor ?? blue),
         enabledBorder: !hasBorder
             ? null
             : isEmpty
-                ? isBorderUnderline
-                    ? underlineBorder(widget.enabledBorderColorEmpty ?? grey)
-                    : outlineInputBorder(widget.enabledBorderColorEmpty ?? grey)
-                : isBorderUnderline
-                    ? underlineBorder(
-                        widget.enabledBorderColorNotEmpty ?? green)
-                    : outlineInputBorder(
-                        widget.enabledBorderColorNotEmpty ?? green),
+            ? isBorderUnderline
+                  ? underlineBorder(enabledBorderColorEmpty ?? grey)
+                  : outlineInputBorder(enabledBorderColorEmpty ?? grey)
+            : isBorderUnderline
+            ? underlineBorder(enabledBorderColorNotEmpty ?? green)
+            : outlineInputBorder(enabledBorderColorNotEmpty ?? green),
 
         hintText: widget.hint,
-        hintStyle: t.text.def400s16Grey.copyWith(color: widget.textColor),
+        hintStyle: t.text.def400s16Grey.copyWith(color: textColor),
         counterText: '', // removes counter after setting maxLength
         errorText: widget.errorText,
-        errorBorder:
-            isBorderUnderline ? redUnderlineBorder : redOutlineInputBorder,
-        focusedErrorBorder:
-            isBorderUnderline ? redUnderlineBorder : redOutlineInputBorder,
+        errorBorder: isBorderUnderline
+            ? redUnderlineBorder
+            : redOutlineInputBorder,
+        focusedErrorBorder: isBorderUnderline
+            ? redUnderlineBorder
+            : redOutlineInputBorder,
       ),
     );
 
