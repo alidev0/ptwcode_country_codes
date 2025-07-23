@@ -7,7 +7,7 @@ class CountryApi {
 
   Future<String?> iso2ByIp() async {
     try {
-      final res = await dio.post('https://freeipapi.com/api/json');
+      final res = await dio.get('https://freeipapi.com/api/json');
       return res.data['countryCode'] as String?;
     } catch (e) {
       return null;

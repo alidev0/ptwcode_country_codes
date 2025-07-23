@@ -39,6 +39,7 @@ class _ContentState extends State<_Content> {
   @override
   Widget build(BuildContext context) {
     final t = Theme.of(context);
+    final def400s15Black = t.text.def400s15Black;
 
     Widget item(Country country) {
       Widget curr = Image.asset(
@@ -53,11 +54,8 @@ class _ContentState extends State<_Content> {
         children: [
           const Gap(16),
           SizedBox(width: 64, height: 48, child: curr),
-          SizedBox(
-            width: 64,
-            child: Text(country.call, style: t.text.def400s15Black),
-          ),
-          Expanded(child: Text(country.name, style: t.text.def400s15Black)),
+          SizedBox(width: 64, child: Text(country.call, style: def400s15Black)),
+          Expanded(child: Text(country.name, style: def400s15Black)),
           const Gap(16),
         ],
       );
@@ -85,8 +83,10 @@ class _ContentState extends State<_Content> {
     );
     cancel = AllPadding(cancel, 8);
 
-    cancel =
-        GestureDetector(child: cancel, onTap: () => Navigator.pop(context));
+    cancel = GestureDetector(
+      child: cancel,
+      onTap: () => Navigator.pop(context),
+    );
 
     Widget current = Input(
       ctrl: _ctrl,

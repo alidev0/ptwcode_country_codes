@@ -1,25 +1,25 @@
 name: example
-description: A new Flutter project.
+description: "A new Flutter project."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.2 <4.0.0'
+  sdk: ^3.8.1
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.8
   ptwcode_country_codes:
     path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  ptwcode_lints: ^1.0.12
+  flutter_lints: ^5.0.0
+  ptwcode_lints: ^1.0.23
 
 flutter:
   uses-material-design: true
